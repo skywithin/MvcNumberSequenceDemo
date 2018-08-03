@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27428.2027
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvcNumberSequenceDemo", "MvcNumberSequenceDemo\MvcNumberSequenceDemo.csproj", "{53162D6C-E9ED-48AC-8914-7DCD416F0439}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvcNumberSequenceDemo.Tests", "MvcNumberSequenceDemo.Tests\MvcNumberSequenceDemo.Tests.csproj", "{9C8836F0-A3C5-47F6-8095-008B0F2AB2BC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{53162D6C-E9ED-48AC-8914-7DCD416F0439}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{53162D6C-E9ED-48AC-8914-7DCD416F0439}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{53162D6C-E9ED-48AC-8914-7DCD416F0439}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{53162D6C-E9ED-48AC-8914-7DCD416F0439}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9C8836F0-A3C5-47F6-8095-008B0F2AB2BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C8836F0-A3C5-47F6-8095-008B0F2AB2BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9C8836F0-A3C5-47F6-8095-008B0F2AB2BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C8836F0-A3C5-47F6-8095-008B0F2AB2BC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {492037D8-31DC-4C9B-BE8F-B85B2A2F8511}
+	EndGlobalSection
+EndGlobal
