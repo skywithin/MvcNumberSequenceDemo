@@ -1,0 +1,12 @@
+﻿
+.banner {
+    background-image: url("Images/math_banner.jpg");
+}
+
+.whiteText {
+    color: #fff;
+}
+
+#bannerHeader {
+    color: #fff;
+}
