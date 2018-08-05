@@ -1,7 +1,82 @@
-﻿
+﻿@model MvcNumberSequenceDemo.ViewModels.SequenceViewModel
+
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Generate Sequence";
 }
 
-<h2>Index</h2>
+<h2>Generate Sequence</h2>
 
+@using (Html.BeginForm(actionName: "GenerateSequence", controllerName: "Sequence", method: FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    
+
+    <div class="form-horizontal">
+        @Html.ValidationSummary(excludePropertyErrors: true)
+
+        <div class="form-group">
+            @Html.LabelFor(
+                m => m.SelectedSequenceType, 
+                "Sequence Type", 
+                htmlAttributes: new { @class = "control-label col-md-2" })
+
+            <div class="col-md-10">
+                @Html.DropDownListFor(
+                    m => m.SelectedSequenceType,
+                    selectList: new SelectList(
+                                    items: Model.AvailableSequenceTypes,
+                                    dataTextField: "DisplayName",
+                                    dataValueField: "Type"),
+                    htmlAttributes: new { @class = "form-control" })
+
+                @Html.ValidationMessageFor(
+                    m => m.SelectedSequenceType,
+                    validationMessage: "",
+                    htmlAttributes: new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(
+                m => m.RequestedNumberOfItems,
+                "Number of items to generate",
+                htmlAttributes: new { @class = "control-label col-md-2" })
+
+            <div class="col-md-10">
+                @Html.EditorFor(
+                    m => m.RequestedNumberOfItems,
+                    new { htmlAttributes = new { @class = "form-control" } })
+
+                @Html.ValidationMessageFor(
+                    m => m.RequestedNumberOfItems,
+                    validationMessage: "",
+                    htmlAttributes: new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Generate" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @if (Model.SequenceItems != null)
+    {
+        <table class="table">
+            <tr>
+                <th>Sequence</th>
+            </tr>
+
+            @foreach (var item in Model.SequenceItems)
+            {
+                <tr>
+                    <td>@item</td>
+                </tr>
+            }
+
+        </table>
+    }
+</div>

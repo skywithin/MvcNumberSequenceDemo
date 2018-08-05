@@ -1,4 +1,7 @@
-﻿using System;
+﻿using MvcNumberSequenceDemo.ViewModels;
+using SequenceGenerator;
+using SequenceGenerator.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,10 +11,45 @@ namespace MvcNumberSequenceDemo.Controllers
 {
     public class SequenceController : Controller
     {
+        private ISequenceService SeqService = new SequenceService();
+
+
+
         // GET: Sequence
         public ActionResult Index()
         {
-            return View();
+            var sequenceTypes = SeqService.GetAvailableSequenceTypesInfo();
+
+            var model =
+                new SequenceViewModel
+                {
+                    AvailableSequenceTypes = sequenceTypes,
+                };
+
+            return View(model);
         }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult GenerateSequence(string selectedSequenceType, int requestedNumberOfItems)
+        {
+            var sequenceType = (SequenceType)Enum.Parse(typeof(SequenceType), selectedSequenceType, ignoreCase: true);
+            var strategy = SeqService.GetSequenceStrategy(sequenceType);
+            var sequenceItems = SeqService.GenerateSequence(strategy, requestedNumberOfItems);
+            var sequenceTypes = SeqService.GetAvailableSequenceTypesInfo();
+
+            var model = 
+                new SequenceViewModel
+                {
+                    AvailableSequenceTypes = sequenceTypes,
+                    SelectedSequenceType = selectedSequenceType,
+                    RequestedNumberOfItems = requestedNumberOfItems,
+                    SequenceItems = sequenceItems
+
+                };
+
+            return View(viewName: "Index", model: model);
+        }
+
     }
 }
