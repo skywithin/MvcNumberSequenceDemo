@@ -11,14 +11,23 @@ namespace MvcNumberSequenceDemo.Controllers
 {
     public class SequenceController : Controller
     {
-        private ISequenceService SeqService = new SequenceService();
+        private ISequenceService _sequenceService;
+        private ISequenceStrategyFactory _sequenceStrategyFactory;
 
+        // Constructor
+        public SequenceController(
+            ISequenceService sequenceService, 
+            ISequenceStrategyFactory sequenceStrategyFactory)
+        {
+            _sequenceService = sequenceService;
+            _sequenceStrategyFactory = sequenceStrategyFactory;
+        }
 
 
         // GET: Sequence
         public ActionResult Index()
         {
-            var sequenceTypes = SeqService.GetAvailableSequenceTypesInfo();
+            var sequenceTypes = _sequenceService.GetAvailableSequenceTypesInfo();
 
             var model =
                 new SequenceViewModel
@@ -34,9 +43,9 @@ namespace MvcNumberSequenceDemo.Controllers
         public ActionResult GenerateSequence(string selectedSequenceType, int requestedNumberOfItems)
         {
             var sequenceType = (SequenceType)Enum.Parse(typeof(SequenceType), selectedSequenceType, ignoreCase: true);
-            var strategy = SeqService.GetSequenceStrategy(sequenceType);
-            var sequenceItems = SeqService.GenerateSequence(strategy, requestedNumberOfItems);
-            var sequenceTypes = SeqService.GetAvailableSequenceTypesInfo();
+            var strategy = _sequenceStrategyFactory.CreateSequenceStrategy(sequenceType);
+            var sequenceItems = _sequenceService.GenerateSequence(strategy, requestedNumberOfItems);
+            var sequenceTypes = _sequenceService.GetAvailableSequenceTypesInfo();
 
             var model = 
                 new SequenceViewModel
@@ -45,7 +54,6 @@ namespace MvcNumberSequenceDemo.Controllers
                     SelectedSequenceType = selectedSequenceType,
                     RequestedNumberOfItems = requestedNumberOfItems,
                     SequenceItems = sequenceItems
-
                 };
 
             return View(viewName: "Index", model: model);

@@ -13,8 +13,6 @@ namespace SequenceGenerator.Interfaces
         /// <returns>Sequence of generated items.</returns>
         IEnumerable<string> GenerateSequence(ISequenceStrategy strategy, int numberOfItems);
 
-        ISequenceStrategy GetSequenceStrategy(SequenceType type);
-
         IEnumerable<SequenceTypeSummary> GetAvailableSequenceTypesInfo();
     }
 }
