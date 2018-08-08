@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using MvcNumberSequenceDemo.Entities.Constants;
 
-namespace SequenceGenerator.Interfaces
+namespace MvcNumberSequenceDemo.Interfaces.Interfaces
 {
     public interface ISequenceStrategyFactory
     {

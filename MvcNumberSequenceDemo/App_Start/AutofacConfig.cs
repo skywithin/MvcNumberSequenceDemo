@@ -1,7 +1,8 @@
 ﻿using Autofac;
 using Autofac.Integration.Mvc;
-using SequenceGenerator;
-using SequenceGenerator.Interfaces;
+using MvcNumberSequenceDemo.Interfaces.Interfaces;
+using MvcNumberSequenceDemo.Services;
+using MvcNumberSequenceDemo.Services.Factories;
 using System.Web.Mvc;
 
 namespace MvcNumberSequenceDemo.App_Start

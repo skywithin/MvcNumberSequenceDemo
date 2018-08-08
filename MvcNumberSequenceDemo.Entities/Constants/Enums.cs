@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace SequenceGenerator
+﻿namespace MvcNumberSequenceDemo.Entities.Constants
 {
     public enum SequenceType
     {

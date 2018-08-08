@@ -1,6 +1,6 @@
-﻿using MvcNumberSequenceDemo.ViewModels;
-using SequenceGenerator;
-using SequenceGenerator.Interfaces;
+﻿using MvcNumberSequenceDemo.Entities.Constants;
+using MvcNumberSequenceDemo.Interfaces.Interfaces;
+using MvcNumberSequenceDemo.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;

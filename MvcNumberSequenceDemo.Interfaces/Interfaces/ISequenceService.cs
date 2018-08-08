@@ -1,7 +1,7 @@
-﻿using System;
+﻿using MvcNumberSequenceDemo.Entities;
 using System.Collections.Generic;
 
-namespace SequenceGenerator.Interfaces
+namespace MvcNumberSequenceDemo.Interfaces.Interfaces
 {
     public interface ISequenceService
     {

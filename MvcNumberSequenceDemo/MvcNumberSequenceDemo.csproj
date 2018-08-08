@@ -220,13 +220,21 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SequenceGenerator\SequenceGenerator.csproj">
-      <Project>{7f9df7ec-186c-4474-a577-7f06c0d71f24}</Project>
-      <Name>SequenceGenerator</Name>
-    </ProjectReference>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadata Include="Connected Services\" />
+    <ProjectReference Include="..\MvcNumberSequenceDemo.Entities\MvcNumberSequenceDemo.Entities.csproj">
+      <Project>{cb51f9ca-3c17-4a66-822d-22a55667eecb}</Project>
+      <Name>MvcNumberSequenceDemo.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MvcNumberSequenceDemo.Interfaces\MvcNumberSequenceDemo.Interfaces.csproj">
+      <Project>{30fd71f4-cb65-46ca-8e88-d14fcaacb1f0}</Project>
+      <Name>MvcNumberSequenceDemo.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MvcNumberSequenceDemo.Services\MvcNumberSequenceDemo.Services.csproj">
+      <Project>{8d992aa9-de8c-4136-80bb-5e362c04a708}</Project>
+      <Name>MvcNumberSequenceDemo.Services</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
